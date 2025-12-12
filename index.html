@@ -1,1 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Certificate Generator</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 20px;
+        }
+
+        #certificate {
+            max-width: 90%;
+            height: auto;
+            border: 3px solid black;
+            margin: 20px auto;
+            padding: 20px;
+            display: none;
+            background-size: cover;
+            background-position: center;
+        }
+
+        #nameDisplay {
+            font-size: 24px;
+            font-weight: bold;
+            margin-top: 40px;
+            word-wrap: break-word;
+        }
+
+        input {
+            width: 80%;
+            padding: 12px;
+            font-size: 18px;
+        }
+
+        button {
+            margin-top: 10px;
+            padding: 10px 20px;
+            font-size: 18px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h2>Enter your name:</h2>
+
+    <input type="text" id="nameInput" placeholder="Your name here">
+    <br><br>
+    <button onclick="generate()">Generate Certificate</button>
+
+    <div id="certificate">
+        <h2>Certificate of Completion</h2>
+        <p>This certificate is presented to</p>
+
+        <div id="nameDisplay"></div>
+
+        <p>Thank you for participating.</p>
+    </div>
+
+    <script>
+        function generate() {
+            const name = document.getElementById("nameInput").value;
+
+            if (name.trim() === "") {
+                alert("Please type a name!");
+                return;
+            }
+
+            document.getElementById("nameDisplay").innerText = name;
+            document.getElementById("certificate").style.display = "block";
+        }
+    </script>
+
+</body>
+</html>
